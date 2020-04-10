@@ -1,5 +1,5 @@
 {
-  "homepage": "http://infinity-intellect.github.io/genseq_frontend",
+  "homepage": "http://Infinity-Intellect.github.io/genseq_frontend/",
   "name": "genseq-frontend",
   "version": "0.1.0",
   "private": true,
@@ -9,14 +9,13 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "form-data": "^3.0.0",
-    "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -36,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
