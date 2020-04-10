@@ -34,7 +34,7 @@ export default class Form extends Component {
         formData.append('columnOrder', JSON.stringify(this.state.columnData))
         console.log(formData.get('image'))
         this.setState({ resultSequence: 'Loading ...' })
-        axios.post("http://genseq-backend.herokuapp.com/getSequence", formData, { headers: { 'content-type': 'multipart/form-data' } })
+        axios.post("https://genseq-backend.herokuapp.com/getSequence", formData, { headers: { 'content-type': 'multipart/form-data' } })
             .then(response => {
                 console.log(response.data)
                 this.setState({ resultSequence: response.data.sequence })
