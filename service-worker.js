@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/genseq_frontend/precache-manifest.b09cc55326253714991057ec8677eb7d.js"
+  "/genseq_frontend/precache-manifest.283a4fe0ef2b110d74fabdac75882410.js"
 );
 
 self.addEventListener('message', (event) => {
