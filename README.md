@@ -1,4 +1,4 @@
-#genseq_frontend
+# genseq_frontend
 Automated Gene Sequencing Application
 
 Title of the Project: GenSeq - Automated Gene Sequencing
