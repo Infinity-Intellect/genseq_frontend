@@ -24,6 +24,7 @@ export default class Form extends Component {
     }
     onSubmit() {
         let h2Elt=document.createElement('h2')
+        h2Elt.setAttribute("id","h2seq")
         h2Elt.innerHTML="The Sequence is:"
         let result=document.getElementById('result')
         result.insertBefore(h2Elt,result.childNodes[0])
@@ -32,14 +33,19 @@ export default class Form extends Component {
         formData.append("username", "sidd")
         formData.append('image', this.state.fileToSend, this.state.fileToSend.name)
         formData.append('columnOrder', JSON.stringify(this.state.columnData))
-        console.log(formData.get('image'))
         this.setState({ resultSequence: 'Loading ...' })
         axios.post("https://genseq-backend.herokuapp.com/getSequence", formData, { headers: { 'content-type': 'multipart/form-data' } })
             .then(response => {
-                console.log(response.data)
-                this.setState({ resultSequence: response.data.sequence })
+                console.log(response.status)
+                if(response.status === 200)
+                {                    
+                    this.setState({ resultSequence: response.data.sequence })
+                }
 
             }).catch(err => {
+                this.setState({resultSequence:''})
+                h2Elt.innerHTML="*Sorry, we could not process that for you !*<br/>Please try another image"
+                h2Elt.style.color="red"
                 console.log(err)
             })
 
@@ -50,12 +56,17 @@ export default class Form extends Component {
         const newColumnData = { ...this.state.columnData }
         newColumnData[key] = value;
         this.setState({ columnData: newColumnData })
-        console.log(this.state.columnData)
     }
     previewImage(event) {
         this.setState({ file: URL.createObjectURL(event.target.files[0]) })
         this.setState({ fileToSend: event.target.files[0] })
-
+        
+        //When uploading subsequent images image
+        if(document.getElementById("h2seq")!==null)
+        {
+            document.getElementById("h2seq").remove()
+            this.setState({resultSequence:''})
+        }
     }
     render() {
         return (
