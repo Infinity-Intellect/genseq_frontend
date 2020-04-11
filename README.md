@@ -16,3 +16,5 @@ Process Flow:
 3. On submitting the image, the user gets a response indicating the gene sequence of the corresponding image given.
 
 Please refer to the backend application here:https://github.com/Infinity-Intellect/genseq_backend/
+
+The application is currently live at https://infinity-intellect.github.io/genseq_frontend/
